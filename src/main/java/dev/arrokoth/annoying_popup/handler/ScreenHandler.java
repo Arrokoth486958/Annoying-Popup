@@ -40,7 +40,6 @@ public class ScreenHandler {
 
     public static boolean shouldOpen(Screen screen) {
         return screen instanceof TitleScreen ||
-                screen instanceof SelectWorldScreen ||
                 screen instanceof JoinMultiplayerScreen;
     }
 
@@ -79,7 +78,7 @@ public class ScreenHandler {
                 drawCenteredString(event.getGuiGraphics(), Minecraft.getInstance().font, Component.literal(part), Minecraft.getInstance().getWindow().getGuiScaledWidth() / 2, Minecraft.getInstance().getWindow().getGuiScaledHeight() / 2 - 232 / 2 + 72 + 12 * i, TEXT_COLOR);
             }
 
-            if (event.getMouseX() >= Minecraft.getInstance().getWindow().getGuiScaledWidth() / 2 - 128 / 2 && event.getMouseX() <= Minecraft.getInstance().getWindow().getGuiScaledWidth() / 2 + 128 * 2 &&
+            if (event.getMouseX() >= Minecraft.getInstance().getWindow().getGuiScaledWidth() / 2 - 128 / 2 && event.getMouseX() <= Minecraft.getInstance().getWindow().getGuiScaledWidth() / 2 + 128 / 2 &&
                 event.getMouseY() >= Minecraft.getInstance().getWindow().getGuiScaledHeight() / 2 + 232 / 2 - 76 && event.getMouseY() <= Minecraft.getInstance().getWindow().getGuiScaledHeight() / 2 + 232 / 2 - 76 + 32) {
                 event.getGuiGraphics().blit(new ResourceLocation("annoying_popup", "textures/gui/button_hover.png"), Minecraft.getInstance().getWindow().getGuiScaledWidth() / 2 - 128 / 2, Minecraft.getInstance().getWindow().getGuiScaledHeight() / 2 + 232 / 2 - 76, 0, 0, 128, 32, 128, 32);
             } else {
@@ -100,7 +99,7 @@ public class ScreenHandler {
     @SubscribeEvent
     public static void mouseButtonPressed(final ScreenEvent.MouseButtonPressed event) {
         if (isOpening && event.isCancelable()) {
-            if (event.getMouseX() >= (double) (Minecraft.getInstance().getWindow().getGuiScaledWidth() / 2 - 128 / 2) && event.getMouseX() <= (double) (Minecraft.getInstance().getWindow().getGuiScaledWidth() / 2 + 128 * 2) &&
+            if (event.getMouseX() >= (double) (Minecraft.getInstance().getWindow().getGuiScaledWidth() / 2 - 128 / 2) && event.getMouseX() <= (double) (Minecraft.getInstance().getWindow().getGuiScaledWidth() / 2 + 128 / 2) &&
                     event.getMouseY() >= (double) (Minecraft.getInstance().getWindow().getGuiScaledHeight() / 2 + 232 / 2 - 76) && event.getMouseY() <= (double) (Minecraft.getInstance().getWindow().getGuiScaledHeight() / 2 + 232 / 2 - 76 + 32)) {
                 try {
                     Util.getPlatform().openUri(new URI("https://mc.163.com/"));
