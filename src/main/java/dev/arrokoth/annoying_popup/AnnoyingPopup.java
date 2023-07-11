@@ -10,7 +10,6 @@ import java.util.Arrays;
 public class AnnoyingPopup {
     public static final String MOD_ID = "annoying_popup";
     public static final boolean IS_NETEASE = isNetEaseMinecraft();
-//    private static final Logger LOGGER = LogUtils.getLogger();
 
     public AnnoyingPopup() {
         MinecraftForge.EVENT_BUS.register(this);
