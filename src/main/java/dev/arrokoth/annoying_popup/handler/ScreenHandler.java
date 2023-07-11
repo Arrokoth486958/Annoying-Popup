@@ -39,13 +39,16 @@ public class ScreenHandler {
     private static boolean isOpening = false;
 
     public static boolean shouldOpen(Screen screen) {
+        if (AnnoyingPopup.IS_NETEASE) {
+            return false;
+        }
+
         return screen instanceof TitleScreen ||
                 screen instanceof JoinMultiplayerScreen;
     }
 
     @SubscribeEvent
     public static void init(final ScreenEvent.Init event) {
-        System.out.println(event.getScreen().getClass());
         if (shouldOpen(event.getScreen()) && Objects.equals(COUNTRY, "CN")){
             isOpening = true;
         }
